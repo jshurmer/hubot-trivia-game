@@ -134,7 +134,7 @@ class Game
         if adjustedValue != value
             resp.send "Hints Used = #{@hintLength-1}, original points = #{value}, adjusted points = #{adjustedValue}"
 
-        user = resp.envelope.user.mention_name.toLowerCase().trim()
+        user = resp.envelope.user.name.toLowerCase().trim()
         newScore = @scoreKeeper.add(user, adjustedValue)
         if newScore? then resp.send "#{user} has a total of #{newScore} points."
 
