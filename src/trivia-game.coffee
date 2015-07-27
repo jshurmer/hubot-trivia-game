@@ -34,10 +34,8 @@ class ScoreKeeper
     @cache =
       scores: {}
 
-    @robot.brain.on "loaded", =>
-      @robot.brain.data.scores ||= {}
-
-      @cache.scores = @robot.brain.data.scores
+    @robot.brain.data.scores ||= {}
+    @cache.scores = @robot.brain.data.scores
 
   getUser: (user) ->
     @cache.scores[user] ||= 0
